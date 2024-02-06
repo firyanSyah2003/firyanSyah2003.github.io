@@ -1,0 +1,364 @@
+/* surface */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.img {
+    width: 100%;
+}
+
+.container {
+    display: grid;
+    gap: 10px;
+}
+
+body {
+    background-color: rgb(186, 185, 185);
+    font-size: 18px;
+    font-family: "Oswald", sans-serif;
+    margin: 50px;
+}
+
+/* header */
+.header {
+    display: grid;
+    grid-template-areas:
+        'features-1 hero hero '
+        'features-2 hero hero ';
+
+}
+
+.hero {
+    grid-area: hero;
+    min-height: 350px;
+    background-image: url(../gbr/1.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 50px;
+}
+
+.hero>* {
+    display: none;
+}
+
+.features {
+    background-color: black;
+    color: rgb(255, 255, 255);
+    display: grid;
+    place-content: end center;
+    cursor: pointer;
+    text-align: center;
+    text-shadow: 0px 0px 10px black;
+}
+
+.features-1 {
+    grid-area: features-1;
+    background-image: url(../gbr/2.png);
+    background-size: cover;
+}
+
+.features-2 {
+    grid-area: features-2;
+    background-image: url(../gbr/3.png);
+    background-size: cover;
+}
+
+.features .price {
+    font-size: 2rem;
+}
+
+/* NAVBAR */
+
+.menu {
+    order: -1;
+    display: grid;
+    grid-template-columns: 200px 2fr;
+    align-items: end;
+}
+
+.brand {
+    text-align: center;
+    font-size: 1.3em;
+    color: rgb(41, 41, 41);
+}
+
+.brand-2 h4 {
+    text-align: center;
+}
+
+.brand-2 {
+    display: none;
+}
+
+.menu ul {
+    display: grid;
+    list-style: none;
+    gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+.menu a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 5px;
+    font-size: .8em;
+
+}
+
+/* Services */
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 30px;
+    text-align: center;
+    grid-template-areas:
+        'tutorial dress podcast'
+        ' online online online ';
+}
+
+.a {
+    grid-area: tutorial;
+}
+
+.b {
+    grid-area: dress;
+}
+
+.c {
+    grid-area: podcast;
+}
+
+.d {
+    grid-area: online;
+}
+
+.service {
+    border-radius: 10px;
+    background-color: rgb(159, 149, 148);
+    padding: 10px;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.555);
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.service .icon {
+    font-size: 3rem;
+}
+
+.service h3 {
+    font-size: 1.5em;
+}
+
+.service p {
+    font-weight: 300;
+    letter-spacing: 1px;
+    font-size: .8em;
+}
+
+/* SIDEBAR MENU */
+.menu-toogle {
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    z-index: 5;
+    position: relative;
+}
+
+.menu-toogle input {
+    position: absolute;
+    width: 28px;
+    height: 30px;
+    opacity: 0;
+    left: 20px;
+    top: -4px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.menu-toogle span {
+    display: block;
+    width: 29px;
+    height: 4px;
+    background-color: rgb(0, 0, 0);
+    transition: .5s;
+    margin-left: 20px;
+}
+
+/* menu animation */
+.menu-toogle span:nth-child(2) {
+    transform-origin: 0 0;
+}
+
+.menu-toogle span:nth-child(4) {
+    transform-origin: 0 100%;
+}
+
+.menu-toogle input:checked~span:nth-child(2) {
+    background-color: rgb(240, 240, 240);
+    transform: rotate(45deg) translate(-2.5px, -1px);
+}
+
+.menu-toogle input:checked~span:nth-child(4) {
+    background-color: rgb(224, 224, 224);
+    transform: rotate(-45deg) translate(-1px, 0);
+}
+
+.menu-toogle input:checked~span:nth-child(3) {
+    transform: scale(0);
+}
+
+/* Gallery */
+.gallery {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    place-items: center;
+    gap: 12px;
+}
+
+.gallery img {
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.445);
+}
+
+.gallery h2 {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* responsive break point */
+@media screen and (min-width: 1024px) {
+    .services {
+        display: grid;
+        grid-template-areas:
+            'tutorial dress podcast online';
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .kotak {
+        display: block;
+        background-color: rgba(0, 0, 0, 0.847);
+        color: white;
+        width: 200px;
+        text-align: center;
+        padding: 3px;
+        margin: 3px;
+    }
+
+    .hero {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .menu {
+        order: inherit;
+        grid-template-columns: 1fr;
+    }
+
+    .menu .brand {
+        display: none;
+    }
+
+
+}
+
+
+@media screen and (min-width: 768px) {
+    .menu a {
+        background-color: black;
+    }
+
+}
+
+
+@media screen and (max-width: 767px) {
+    .menu {
+        order: -1;
+        justify-items: end;
+        grid-template-areas:
+            'brand-2  menu-toogle';
+        justify-items: start;
+    }
+
+    .menu ul {
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        justify-content: end;
+        width: 100%;
+        right: 0;
+        top: 0;
+        height: 40vh;
+        align-items: center;
+        z-index: 2;
+        background-color: rgb(169, 167, 167);
+        transform: translatey(-100%);
+        transition: all 1s;
+        opacity: 0;
+    }
+
+    .menu li {
+        border-bottom: 1px solid black;
+        width: 100%;
+        padding: 10px;
+    }
+
+    nav ul.slide {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .menu-toogle {
+        grid-area: menu-toogle;
+        display: flex;
+    }
+
+    .brand-2 {
+        grid-area: brand-2;
+        display: inline-block;
+        flex-direction: row;
+        color: rgb(41, 41, 41);
+
+    }
+
+    .kotak {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 650px) {
+    .services {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header {
+        grid-template-areas:
+            'hero'
+            'features-1'
+            'features-2'
+        ;
+    }
+
+    .features {
+        background-repeat: no-repeat;
+        height: 300px;
+    }
+
+    body {
+        margin: 20px;
+    }
+}
